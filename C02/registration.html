@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Registration Form</title>
+  <style>
+    body { font-family: Arial; margin: 40px; }
+    form { width: 300px; }
+    input { width: 100%; margin: 8px 0; padding: 8px; }
+    button { width: 100%; padding: 8px; background: #007bff; color: white; border: none; }
+  </style>
+</head>
+<body>
+  <h2>Registration Form</h2>
+  <form id="regForm" onsubmit="return validateForm()">
+    <input type="text" id="name" placeholder="Full Name">
+    <input type="email" id="email" placeholder="Email">
+    <input type="password" id="password" placeholder="Password">
+    <input type="password" id="confirm" placeholder="Confirm Password">
+    <button type="submit">Register</button>
+  </form>
+
+  <script>
+    function validateForm() {
+      const name = document.getElementById("name").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const pass = document.getElementById("password").value;
+      const confirm = document.getElementById("confirm").value;
+
+      if (!name || !email || !pass || !confirm) {
+        alert("All fields are required!");
+        return false;
+      }
+      if (pass.length < 6) {
+        alert("Password must be at least 6 characters!");
+        return false;
+      }
+	let specialCharPattern = /@#$%^&*()--+=;
+
+      if(!specialCharPattern.test(pass))
+	{
+	 alert("password should contain atleast one special character")
+  	return false;
+	}
+      if (pass !== confirm) {
+        alert("Passwords do not match!");
+        return false;
+      }
+      alert("Registration successful!");
+      return true;
+    }
+  </script>
+</body>
+</html>

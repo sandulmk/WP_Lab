@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>JavaScript String & Math Functions</title>
+</head>
+<body>
+  <h2>JavaScript String and Math Functions</h2>
+
+  <h3>String Functions</h3>
+  <p id="stringDemo"></p>
+
+  <h3>Math Functions</h3>
+  <p id="mathDemo"></p>
+
+  <script>
+    let str = " Hello JavaScript ";
+    let stringOutput = `
+      Original: "${str}"<br>
+      Length: ${str.length}<br>
+      Uppercase: ${str.toUpperCase()}<br>
+      Lowercase: ${str.toLowerCase()}<br>
+      Trimmed: "${str.trim()}"<br>
+      Substring(1,6): "${str.substring(1,6)}"<br>
+      Replace 'Java' with 'ECMA': ${str.replace("Java", "ECMA")}<br>
+    `;
+    document.getElementById("stringDemo").innerHTML = stringOutput;
+
+
+    let num = 9.67;
+    let mathOutput = `
+      Number: ${num}<br>
+      Round: ${Math.round(num)}<br>
+      Floor: ${Math.floor(num)}<br>
+      Ceil: ${Math.ceil(num)}<br>
+      Square Root: ${Math.sqrt(num)}<br>
+      Power (2³): ${Math.pow(2,3)}<br>
+      Random (0–10): ${Math.floor(Math.random() * 11)}<br>
+      Max(10, 5, 8): ${Math.max(10, 5, 8)}<br>
+      Min(10, 5, 8): ${Math.min(10, 5, 8)}<br>
+    `;
+    document.getElementById("mathDemo").innerHTML = mathOutput;
+  </script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hover Change</title>
+</head>
+<body>
+
+<div id="content" onmouseover="hover()" onmouseout="unhover()" style="text-align:center; cursor:pointer;">
+    <img id="img" src="https://via.placeholder.com/300x200?text=Original" width="300"><br>
+    <p id="txt">Hover over me!</p>
+</div>
+
+<script>
+function hover() {
+    document.getElementById('img').src = "foot.jpg";
+    document.getElementById('txt').textContent = "You hovered!";
+}
+
+function unhover() {
+    document.getElementById('img').src = "https://via.placeholder.com/300x200?text=Original";
+    document.getElementById('txt').textContent = "Hover over me!";
+}
+</script>
+
+</body>
+</html>

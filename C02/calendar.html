@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Simple Calendar</title>
+  <style>
+    body { font-family: Arial; text-align: center; }
+    table { border-collapse: collapse; margin: 10px auto; }
+    th, td { border: 1px solid #ccc; padding: 5px; width: 30px; }
+    th { background: #007bff; color: white; }
+    h3 { margin: 5px; }
+  </style>
+</head>
+<body>
+
+<h2>Simple Calendar</h2>
+<input type="number" id="year" placeholder="Enter year">
+<button onclick="makeCalendar()">Show</button>
+<div id="calendar"></div>
+
+<script>
+function makeCalendar() {
+  let y = document.getElementById("year").value;
+  if (!y) return alert("Please enter a year");
+  let c = document.getElementById("calendar");
+  c.innerHTML = "";
+  const months = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+  for (let m = 0; m < 12; m++) {
+    let d = new Date(y, m, 1);
+    let days = new Date(y, m+1, 0).getDate();
+    let t = "<h3>"+months[m]+"</h3><table><tr><th>Su</th><th>Mo</th><th>Tu</th><th>We</th><th>Th</th><th>Fr</th><th>Sa</th></tr><tr>";
+    for (let i=0; i<d.getDay(); i++) t += "<td></td>";
+    for (let day=1; day<=days; day++) {
+      t += "<td>"+day+"</td>";
+      if ((day + d.getDay()) % 7 == 0) t += "</tr><tr>";
+    }
+    t += "</tr></table>";
+    c.innerHTML += t;
+  }
+}
+</script>
+
+</body>
+</html>
